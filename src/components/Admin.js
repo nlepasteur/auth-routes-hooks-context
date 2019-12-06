@@ -11,7 +11,7 @@ const Admin = () => {
     :
     (
       <div>
-        <h1>Welcome {user.name} :)</h1>
+        <h1>Welcome {user.name} :)</h1> {/* à remplacer par composant Clients */}
         <Link to='/' onClick={logOut}>Log out</Link>
       </div>
     )
