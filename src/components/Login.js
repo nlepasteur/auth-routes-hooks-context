@@ -4,9 +4,9 @@ import { LoginContext } from '../contexts/LoginContext'
 
 const Login = () => {
 
-  const { user, onChange, onSubmit } = useContext(LoginContext)
+  const { user, onChange, onSubmit } = useContext(LoginContext) // context provided par 'LoginContext.js', propriétés et fonctions utilisées par ce composant qui y sont rattachées, y sont expliquées
 
-  return user.loggedIn ? // ici permet de s'assurer qu'accès à utilisateeur loggé, empêche accès depuis path de la barre de recherche
+  return user.loggedIn ? // ici permet de rediriger user après qu'il ait soumis le formulaire et par extension modifié le state user de 'LoginContext.js'
     (
       <Redirect to='/admin' />
     )
@@ -15,8 +15,12 @@ const Login = () => {
       <div>
         <h1>Login</h1>
         <form onSubmit={onSubmit}>
+          <label> Username
           <input type="text" placeholder="username" name="name" value={user.name} onChange={onChange} />
-          <input type="text" placeholder="password" name="password" value={user.password} onChange={onChange} />
+          </label>
+          <label> Password
+            <input type="text" placeholder="password" name="password" value={user.password} onChange={onChange} />
+          </label>
           <input type="submit" />
         </form>
       </div>

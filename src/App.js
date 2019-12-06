@@ -3,7 +3,7 @@ import './App.css';
 import { Switch, Route } from 'react-router-dom'
 import Admin from './components/Admin'
 import LoginContextProvider from './contexts/LoginContext'
-import Logout from './components/Logout'
+import Home from './components/Home'
 import Login from './components/Login'
 import NotFound from './components/NotFound'
 
@@ -12,10 +12,10 @@ const App = () => {
   return (
     <LoginContextProvider>
       <Switch>
+        <Route exact path='/' component={Home} />
         <Route path='/login' component={Login} />
         <Route path='/admin' component={Admin} />
-        <Route exact path='/' component={Logout} />
-        <Route component={NotFound} />
+        <Route component={NotFound} /> {/* page 404 not found*/}
       </Switch>
     </LoginContextProvider>
   );
