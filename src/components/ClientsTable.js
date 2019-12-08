@@ -1,15 +1,26 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+// import React, { useState } from 'react'
 
-const ClientsTable = ({ firstname, lastname, showDetails }) => {
+// const ClientsTable = (props) => {
+//   console.log(props)
 
-  return (
-    <Link>
-      <h2>{firstname}</h2>
-      <h2>{lastname}</h2>
-    </Link>
-  )
-}
+//   const [selected, setSelected] = useState({
+//     selected: false
+//   })
 
-export default ClientsTable
+//   // const [selected, setSelected] = useState()
+
+//   // const onClick = () => {
+//   //   const url = `/clients/${id}`
+//   //   console.log(url)
+//   // }
+
+//   return (
+//     <div>
+//       <h2>{props.firstname}</h2>
+//       <h2>{props.lastname}</h2>
+//     </div>
+//   )
+// }
+
+// export default ClientsTable
 
