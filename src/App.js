@@ -7,19 +7,22 @@ import Home from './components/Home'
 import Login from './components/Login'
 import NotFound from './components/NotFound'
 import Navbar from './components/Navbar'
+import InCaseNoServerProvider from './contexts/InCaseNoServer'
 
 const App = () => {
 
   return (
-    <LoginContextProvider>
-      <Route path='/' component={Navbar} />
-      <Switch>
-        <Route exact path='/' component={Home} />
-        <Route path='/login' component={Login} />
-        <Route path='/admin' component={Admin} />
-        <Route component={NotFound} /> {/* page 404 not found*/}
-      </Switch>
-    </LoginContextProvider>
+    <InCaseNoServerProvider>
+      <LoginContextProvider>
+        <Route path='/' component={Navbar} />
+        <Switch>
+          <Route exact path='/' component={Home} />
+          <Route path='/login' component={Login} />
+          <Route path='/admin' component={Admin} />
+          <Route component={NotFound} /> {/* page 404 not found*/}
+        </Switch>
+      </LoginContextProvider>
+    </InCaseNoServerProvider>
   );
 }
 

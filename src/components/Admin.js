@@ -1,8 +1,12 @@
 import React, { useContext, useState, useEffect } from 'react'
 import { Link, Redirect } from 'react-router-dom'
 import { LoginContext } from '../contexts/LoginContext'
+import { InCaseNoServer } from '../contexts/InCaseNoServer'
 
 const Admin = () => {
+  // pour que vous puissiez regarder sans à avoir à mettre en place serveur et data base'
+  const { hardCodedData } = useContext(InCaseNoServer)
+  // pour que vous puissiez regarder sans à avoir à mettre en place serveur et data base'
   const { user, logOut } = useContext(LoginContext) // context provided par 'LoginContext.js', propriétés et fonctions utilisées par ce composant qui y sont rattachées, y sont expliquées
   // block qui permet de récuper data depuis serveur
   const [clients, setClients] = useState()
@@ -21,20 +25,12 @@ const Admin = () => {
     return () => escape = false
   }, [])
 
-
   const getId = (e) => {
-    console.log('target id : ', e.target.id)
+    // récupère id et traite pour le setState state selected
     const id = parseInt(e.target.id)
-    console.log('typeof de target check : ', typeof test)
-
     const selectedClient = clients.filter(client => client.id === id)
     const [first] = selectedClient
-
-    // test //////////////////////////////////////////////////
-    console.log('test de destructuration : ', first)
-    console.log('ici vérifie si fonctionne que lobjet soit entier : ', selectedClient)
-    // test //////////////////////////////////////////////////
-
+    // récupère id et traite pour le setState state selected
     setSelected({
       id: id,
       city: first.city,
@@ -43,62 +39,61 @@ const Admin = () => {
     })
   }
 
-  // a enlever apres
-  if (clients) {
-    console.log(clients[5].city)
+  const getFakeId = (e) => {
+    // récupère id et traite pour le setState state selected
+    const id = parseInt(e.target.id)
+    const selectedClient = hardCodedData.filter(data => data.id === id)
+    const [first] = selectedClient
+    // récupère id et traite pour le setState state selected
+    setSelected({
+      id: id,
+      city: first.city,
+      street: first.street,
+      postcode: first.postcode
+    })
   }
-  console.log('check selected si bien pris en compte', selected) // check structure
-  // a enlever apres
-
-
+  console.log('check context hardCodedData : ', hardCodedData)
   return !user.loggedIn ?  // ici permet de s'assurer qu'accès à utilisateeur loggé, empêche accès depuis path de la barre de recherche
     (
       <Redirect to='/login' />
     )
     :
-    (
-      <div>
-
-        <h1>Welcome {user.name} :)</h1>
-
-        {clients && clients.map((client) => (
-          <div key={client.id} onClick={getId} id={client.id}>
-            {client.firstname}
-            {client.lastname}
-          </div>
-        ))}
-
+    clients ?
+      (
         <div>
-          ici seront les détails
-          {selected && <div>{selected.city} {selected.street} {selected.postcode}</div>}
-        </div>
 
-        <Link to='/' onClick={logOut}>Log out</Link>
-      </div>
-    )
+          <h1>Welcome {user.name} :)</h1>
+
+          {clients && clients.map((client) => (
+            <div key={client.id} onClick={getId} id={client.id}>
+              {client.firstname}
+              {client.lastname}
+            </div>
+          ))}
+
+          <div>
+            {selected && <div>{selected.city} {selected.street} {selected.postcode}</div>}
+          </div>
+
+          <Link to='/' onClick={logOut}>Log out</Link>
+        </div>
+      ) :
+      (
+        <div>
+          <h1>Welcome {user.name} :)</h1>
+          {hardCodedData && hardCodedData.map(data => (
+            <div key={data.id} onClick={getFakeId} id={data.id}>
+              {data.city}
+              {data.street}
+              {data.postcode}
+            </div>
+          ))}
+          <div>
+            {selected && <div>{selected.city} {selected.street} {selected.postcode}</div>}
+          </div>
+          <Link to='/' onClick={logOut}>Log out</Link>
+        </div>
+      )
 }
 
 export default Admin
-
-  // useEffect(() => {
-  //   let isSuscribed = true
-  //   fetch('http://localhost:3000/clients')
-  //     .then(response => response.json())
-  //     .then(response => {
-  //       if (isSuscribed) {
-  //         setClients(response)
-  //       }
-  //     })
-  //   return () => isSuscribed = false
-  // }, [])
-
-  // {clients && clients.map((client) => (
-  //   <div key={client.id} {...client} id={client.id} />
-  // ))}
-
-  // {clients && clients.map((client, index) => (
-  //         <div key={client.id} onClick={getId} id={client.id}>
-  //           {client.firstname}
-  //           {client.lastname}
-  //         </div>
-  //       ))}
