@@ -3,6 +3,8 @@ import { Link, Redirect } from 'react-router-dom'
 import { LoginContext } from '../contexts/LoginContext'
 import { InCaseNoServer } from '../contexts/InCaseNoServer'
 
+import '../styles/Admin.css'
+
 const Admin = () => {
   // pour que vous puissiez regarder sans à avoir à mettre en place serveur et data base'
   const { hardCodedData } = useContext(InCaseNoServer)
@@ -52,7 +54,7 @@ const Admin = () => {
       postcode: first.postcode
     })
   }
-  console.log('check context hardCodedData : ', hardCodedData)
+  console.log('check context hardCodedData : ', { user }, { selected }, { hardCodedData }, { clients })
   return !user.loggedIn ?  // ici permet de s'assurer qu'accès à utilisateeur loggé, empêche accès depuis path de la barre de recherche
     (
       <Redirect to='/login' />
@@ -60,7 +62,7 @@ const Admin = () => {
     :
     clients ?
       (
-        <div>
+        <div className='className-achanger'>
 
           <h1>Welcome {user.name} :)</h1>
 
@@ -79,7 +81,7 @@ const Admin = () => {
         </div>
       ) :
       (
-        <div>
+        <div className='className-achanger'>
           <h1>Welcome {user.name} :)</h1>
           {hardCodedData && hardCodedData.map(data => (
             <div key={data.id} onClick={getFakeId} id={data.id}>
