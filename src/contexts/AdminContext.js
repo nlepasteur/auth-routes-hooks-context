@@ -38,6 +38,12 @@ const AdminContextProvider = (props) => {
       street: first.street,
       postcode: first.postcode
     })
+    const prev = document.querySelector('.selected')
+    if (prev) {
+      prev.classList.remove('selected')
+    }
+    const current = e.target
+    current.classList.add('selected')
   }
 
   return (

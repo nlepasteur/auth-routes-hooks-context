@@ -86,22 +86,11 @@ const Admin = () => {
     return (
       <ListingClients>
         {dataClients && dataClients.map(client =>
-          <div key={client.id} onClick={getId} id={client.id} onClick={selectedElement}>
+          <div key={client.id} onClick={getId} id={client.id}>
             {client.firstname} {client.lastname}
           </div>)}
       </ListingClients>
     )
-  }
-
-  const selectedElement = (e) => {
-    const prev = document.querySelector('.selected')
-    if (prev) {
-      prev.classList.remove('selected')
-    }
-    console.log('ici prev : ', prev)
-    const current = e.target
-    current.classList.add('selected')
-    console.log('ici current : ', current)
   }
 
   return !user.loggedIn ? // prevent access to Admin without login (from searchbar whit /admin path for example)
