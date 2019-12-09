@@ -15,8 +15,9 @@ height : 80vh;
   border : none;
   font-size : 3rem;
   text-decoration : none;
+  cursor : pointer;
 }
-`
+`;
 
 const Home = () => {
 

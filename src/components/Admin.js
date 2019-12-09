@@ -9,22 +9,55 @@ import { InCaseNoServer } from '../contexts/InCaseNoServer'
 import styled from 'styled-components'
 
 const AdminWrapper = styled.div`
-background-color : pink;
-height : 80vh;
-> h1 {
-  color : blue;
-}
-
+padding : 0 3em;
+background-color : #ffffff;
+min-height : 85vh
+overflow : hidden;
 `;
+
+const AdminHeader = styled.div`
+margin : 2em 0;
+color :#9999ff;
+font-size : 1rem;
+>button{
+  margin : 1em 0;
+  padding : .5em;
+  border-radius : 10px;
+  font-size : 1.5rem;
+  border : 0;
+  background: #9999ff;
+  text-decoration : none;
+
+  >:visited{
+    color : #ffffff;
+  }
+}
+`
 
 const ListingClients = styled.div`
 display : grid;
 width : 80%;
 margin : 0 auto;
-
+text-align : center;
 > div {
   font-size : 2rem;
-  border : 1px solid black;
+  margin : .4em 0;
+  padding : .2em 0;
+  background-color : #F7F7F7;
+  color : #adadad;
+}
+
+>div:first-child{
+  margin-top : 0;
+}
+
+>div:last-child{
+  margin-bottom : 0;
+}
+
+>div:hover {
+  background-color : #ccd9ff;
+  color : #6b7db3;
 }
 `;
 
@@ -53,19 +86,23 @@ const Admin = () => {
     :
     (
       <AdminWrapper>
-        <h1>Welcome {user.name} :)</h1>
+        <AdminHeader>
+          <button><Link to='/' onClick={logOut} style={{ textDecoration: "none" }}>Log out</Link></button>
+          <h1>Welcome {user.name} :)</h1>
+
+        </AdminHeader>
+
 
         {renderDetails()}
 
-        {selected &&
+        {
+          selected &&
           <div>
             <div>{selected.city}</div>
             <div>{selected.street}</div>
             <div>{selected.postcode}</div>
           </div>
         }
-
-        <Link to='/' onClick={logOut}>Log out</Link>
       </AdminWrapper>
     )
 }

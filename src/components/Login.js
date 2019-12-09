@@ -7,15 +7,14 @@ import styled from 'styled-components'
 
 const FormWrapper = styled.div`
 padding : 0 3em;
-border : 1px solid black;
-background-color : yellow;
-height : 80vh;
+background-color : #ffffff;
+height : 85vh;
 >h1{
   margin : 1em 0;
+  color : #9999ff;
 }
 `
 const Form = styled.form`
-border : 1px solid red;
 display : flex;
 flex-wrap : wrap;
 margin : 0 auto 0;
@@ -33,14 +32,14 @@ justify-content : center;
 }
 
 >input:last-child{
+  border : 1px solid #ccd9ff;
+  font-size : 1.5rem;
   width : 50%;
   margin-bottom : 0;
+  background-color : #ccd9ff;
+  color : #6b7db3;
 }
 `;
-
-// const Inp = styled.input{
-//   width : 
-// }
 
 const Login = () => {
 
