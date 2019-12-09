@@ -12,7 +12,7 @@ const LoginContextProvider = (props) => {
 
   // below set user state when inputs value change
   const handleChange = (e) => {
-    const value = e.target.value
+    const value = e.target.value.replace(RegExp(/[!$%^&*()+|~=`{}\[\]:";'<>?,\/]/), '')
     setUser({
       ...user,
       [e.target.name]: value

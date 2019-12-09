@@ -36,8 +36,8 @@ justify-content : center;
   font-size : 1.5rem;
   width : 50%;
   margin-bottom : 0;
-  background-color : #ccd9ff;
-  color : #6b7db3;
+  background-color : #9999ff;
+  color : #8080ff;
 }
 `;
 
@@ -58,7 +58,7 @@ const Login = () => {
 
           <input type="text" name="password" placeholder='password' value={user.password} onChange={handleChange} />
 
-          <input type="submit" />
+          <input type="submit" value="Sign in" />
         </Form>
       </FormWrapper>
     )

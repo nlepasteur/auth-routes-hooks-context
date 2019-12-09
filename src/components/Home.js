@@ -6,11 +6,12 @@ import styled from 'styled-components'
 
 const SignIn = styled.div`
 text-align : center;
-background-color : lightgrey;
-height : 80vh;
+height : 85vh;
 
 > button {
-  margin : 2em 0;;
+  background-color:#9999ff;
+  color : #8080ff;
+  margin : 2em 0;
   padding : 1em;
   border : none;
   font-size : 3rem;
@@ -24,7 +25,7 @@ const Home = () => {
   return (
     <Link to='/login'>
       <SignIn>
-        <button>Sign in</button>
+        <button>Welcome</button>
       </SignIn>
     </Link>
   )

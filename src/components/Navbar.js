@@ -7,7 +7,7 @@ import styled from 'styled-components'
 // below styled-component
 const NavWrapper = styled.div`
 display : flex;
-color : #ccd9ff;
+color : #8080ff;
 height : 15vh;
 font-size : 2rem;
 background-color : #9999ff;

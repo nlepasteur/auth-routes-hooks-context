@@ -37,7 +37,7 @@ font-size : 1rem;
 const ListingClients = styled.div`
 display : grid;
 width : 80%;
-margin : 0 auto;
+margin : 0 auto 2em;
 text-align : center;
 > div {
   font-size : 2rem;
@@ -59,6 +59,15 @@ text-align : center;
   background-color : #ccd9ff;
   color : #6b7db3;
 }
+`;
+
+const DetailsClients = styled.div`
+margin-bottom : 2em;
+padding : 1.5em;
+font-size:1.2rem;
+color : #6b7db3;
+background :  #e6ecff;
+border-radius : 10px;
 `;
 
 const Admin = () => {
@@ -97,11 +106,12 @@ const Admin = () => {
 
         {
           selected &&
-          <div>
-            <div>{selected.city}</div>
-            <div>{selected.street}</div>
-            <div>{selected.postcode}</div>
-          </div>
+          <DetailsClients>
+            <div>City : {selected.city}</div>
+            Address :
+            <div>Street : {selected.street}</div>
+            <div>Postcode : {selected.postcode}</div>
+          </DetailsClients>
         }
       </AdminWrapper>
     )
