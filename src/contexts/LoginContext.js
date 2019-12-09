@@ -1,15 +1,17 @@
-// This component provides context relatif à informations de l'utilisateur
 import React, { useState, createContext } from 'react'
+
 export const LoginContext = createContext()
 
 const LoginContextProvider = (props) => {
+
   const [user, setUser] = useState({
     name: "",
     password: "",
     loggedIn: false
   })
-  // début fonctions utilisés depuis composant formulaire 'Login.js'
-  const onChange = (e) => {
+
+  // below set user state when inputs value change
+  const handleChange = (e) => {
     const value = e.target.value
     setUser({
       ...user,
@@ -17,7 +19,8 @@ const LoginContextProvider = (props) => {
     })
   }
 
-  const onSubmit = (e) => {
+  // below set loggedIn property in user state, which provides access to /admin
+  const handleSubmit = (e) => {
     e.preventDefault()
     const { name, password } = user
     if (name && password) {
@@ -27,16 +30,14 @@ const LoginContextProvider = (props) => {
       })
     }
   }
-  // fin fonctions utilisés depuis composant formulaire 'Login.js'
-  // fonction qui a pour effet à la déconnexion de l'utilisateur de modifier le state user, 
-  // sinon lorsque sur page d'acceuil 'Home.js'user serait redirigé directement sur 'Admin.js'
+
+  // below "delete" properties values in user state when user log out, to prevent redirection directly to /admin
   const logOut = () => {
     setUser({ name: "", password: "", loggedIn: false })
   }
-  // fin fonction qui pour effet...
 
   return (
-    <LoginContext.Provider value={{ user, onChange, onSubmit, logOut }}>
+    <LoginContext.Provider value={{ user, handleChange, handleSubmit, logOut }}>
       {props.children}
     </LoginContext.Provider>
   )

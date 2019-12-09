@@ -1,21 +1,21 @@
-import React, { useContext, useState, useEffect, createContext } from 'react'
-import { LoginContext } from './LoginContext'
+import React, { useState, useEffect, createContext, useContext } from 'react'
+// below import contexts
 import { InCaseNoServer } from './InCaseNoServer'
 
 export const AdminContext = createContext()
 
-
 const AdminContextProvider = (props) => {
-  // block qui permet de récuper data depuis serveur
-  const { hardCodedData } = useContext(InCaseNoServer)
 
+  // below destructure states and contexts, assign them to a variable
+  const { hardCodedData } = useContext(InCaseNoServer)
   const [clients, setClients] = useState()
   const [selected, setSelected] = useState()
 
+  // below fetch data from database or json hardcoded data
   useEffect(() => {
     let escape = true
     const fetchData = async () => {
-      const response = await fetch('http://localhost:3000/clients')
+      const response = await fetch('http://localhost:3000/clients') // ICI 
       const data = await response.json()
       if (escape) {
         setClients(data)
@@ -25,14 +25,13 @@ const AdminContextProvider = (props) => {
     return () => escape = false
   }, [])
 
+  // below provide to setSelected to render clients'details
   const getId = (e) => {
     const dataClients = clients ? clients : hardCodedData
-    // récupère id et traite pour le setState state selected
+    // below catch id of the targetted element and treat it
     const id = parseInt(e.target.id)
     const selectedClient = dataClients.filter(client => client.id === id)
     const [first] = selectedClient
-    console.log('ici details a recuperer : ', first)
-    // récupère id et traite pour le setState state selected
     setSelected({
       id: id,
       city: first.city,

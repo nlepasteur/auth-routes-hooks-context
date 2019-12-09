@@ -1,10 +1,11 @@
 import React, { useContext } from 'react'
 import { Redirect } from 'react-router-dom'
+// below import contexts
 import { LoginContext } from '../contexts/LoginContext'
 
 const Login = () => {
 
-  const { user, onChange, onSubmit } = useContext(LoginContext) // context provided par 'LoginContext.js', propriétés et fonctions utilisées par ce composant qui y sont rattachées, y sont expliquées
+  const { user, handleChange, handleSubmit } = useContext(LoginContext) // context provided par 'LoginContext.js', propriétés et fonctions utilisées par ce composant qui y sont rattachées, y sont expliquées
 
   return user.loggedIn ? // ici permet de rediriger user après qu'il ait soumis le formulaire et par extension modifié le state user de 'LoginContext.js'
     (
@@ -14,12 +15,12 @@ const Login = () => {
     (
       <div>
         <h1>Login</h1>
-        <form onSubmit={onSubmit}> {/*ajouter attributs pour bonne pratique*/}
+        <form onSubmit={handleSubmit}>
           <label> Username
-          <input type="text" placeholder="username" name="name" value={user.name} onChange={onChange} />
+          <input type="text" name="name" value={user.name} onChange={handleChange} />
           </label>
           <label> Password
-            <input type="text" placeholder="password" name="password" value={user.password} onChange={onChange} />
+            <input type="text" name="password" value={user.password} onChange={handleChange} />
           </label>
           <input type="submit" />
         </form>

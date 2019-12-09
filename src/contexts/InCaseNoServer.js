@@ -3,6 +3,7 @@ import React, { createContext, useState } from 'react'
 export const InCaseNoServer = createContext()
 
 const InCaseNoServerProvider = (props) => {
+
   const [hardCodedData, setHardCodedData] = useState([
     {
       id: 3,
@@ -53,6 +54,7 @@ const InCaseNoServerProvider = (props) => {
       postcode: 92200
     }
   ])
+
   return (
     <InCaseNoServer.Provider value={{ hardCodedData }}>
       {props.children}

@@ -1,17 +1,18 @@
 import React from 'react';
-import './App.css';
-import { Switch, Route } from 'react-router-dom'
-import Admin from './components/Admin'
+// below import routes
+import { Route, Switch } from 'react-router-dom'
+// below import contexts
 import LoginContextProvider from './contexts/LoginContext'
+import AdminContextProvider from './contexts/AdminContext'
+import InCaseNoServerProvider from './contexts/InCaseNoServer'
+// below import components
+import Navbar from './components/Navbar'
 import Home from './components/Home'
 import Login from './components/Login'
+import Admin from './components/Admin'
 import NotFound from './components/NotFound'
-import Navbar from './components/Navbar'
-import InCaseNoServerProvider from './contexts/InCaseNoServer'
-import AdminContextProvider from './contexts/AdminContext'
 
 const App = () => {
-
   return (
     <InCaseNoServerProvider>
       <LoginContextProvider>
