@@ -1,10 +1,19 @@
-// A ce niveau de l'app pas vraiment une navbar mais en cas d'évolution
 import React from 'react'
-import '../styles/Navbar.css'
-const Navbar = () => {
-  return (
-    <div className='a-changer'>JUMP</div>
-  )
-}
+// import routes
+import { Link } from 'react-router-dom'
+// below import styled-components
+import styled from 'styled-components'
+
+// below styled-component
+const NavWrapper = styled.div`
+height : 10vh;
+font-size : 2rem;
+background-color : blue;;
+text-align : center;
+
+
+`;
+
+const Navbar = () => <NavWrapper><Link to='/'><h1>JUMP</h1></Link></NavWrapper>
 
 export default Navbar

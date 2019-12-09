@@ -11,3 +11,14 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* below scale font-size depending on viewport */
+:root {
+  font-size: calc(1vw + 0.5em);
+}
+
+/* below reset css to overwrite some defaults browser'styles */
+* {
+  margin: 0;
+  padding: 0;
+}

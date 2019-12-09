@@ -12,6 +12,8 @@ import Login from './components/Login'
 import Admin from './components/Admin'
 import NotFound from './components/NotFound'
 
+import './App.css'
+
 const App = () => {
   return (
     <InCaseNoServerProvider>

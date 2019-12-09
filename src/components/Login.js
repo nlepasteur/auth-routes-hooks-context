@@ -2,6 +2,13 @@ import React, { useContext } from 'react'
 import { Redirect } from 'react-router-dom'
 // below import contexts
 import { LoginContext } from '../contexts/LoginContext'
+// below import styled-components
+import styled from 'styled-components'
+
+const FormWrapper = styled.div`
+background-color : yellow;
+height : 90vh;
+`
 
 const Login = () => {
 
@@ -13,7 +20,7 @@ const Login = () => {
     )
     :
     (
-      <div>
+      <FormWrapper>
         <h1>Login</h1>
         <form onSubmit={handleSubmit}>
           <label> Username
@@ -24,7 +31,7 @@ const Login = () => {
           </label>
           <input type="submit" />
         </form>
-      </div>
+      </FormWrapper>
     )
 }
 
