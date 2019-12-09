@@ -60,6 +60,10 @@ text-align : center;
   background-color : #ccd9ff;
   color : #6b7db3;
 }
+
+>.selected {
+  color : red;
+}
 `;
 
 const DetailsClients = styled.div`
@@ -82,11 +86,22 @@ const Admin = () => {
     return (
       <ListingClients>
         {dataClients && dataClients.map(client =>
-          <div key={client.id} onClick={getId} id={client.id}>
+          <div key={client.id} onClick={getId} id={client.id} onClick={selectedElement}>
             {client.firstname} {client.lastname}
           </div>)}
       </ListingClients>
     )
+  }
+
+  const selectedElement = (e) => {
+    const prev = document.querySelector('.selected')
+    if (prev) {
+      prev.classList.remove('selected')
+    }
+    console.log('ici prev : ', prev)
+    const current = e.target
+    current.classList.add('selected')
+    console.log('ici current : ', current)
   }
 
   return !user.loggedIn ? // prevent access to Admin without login (from searchbar whit /admin path for example)
