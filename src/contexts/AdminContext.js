@@ -41,20 +41,6 @@ const AdminContextProvider = (props) => {
     })
   }
 
-  // const getFakeId = (e) => {
-  //   // récupère id et traite pour le setState state selected
-  //   const id = parseInt(e.target.id)
-  //   const selectedClient = hardCodedData.filter(data => data.id === id)
-  //   const [first] = selectedClient
-  //   // récupère id et traite pour le setState state selected
-  //   setSelected({
-  //     id: id,
-  //     city: first.city,
-  //     street: first.street,
-  //     postcode: first.postcode
-  //   })
-  // }
-  console.log('selected check : ', selected)
   return (
     <AdminContext.Provider value={{ clients, selected, getId }}>
       {props.children}

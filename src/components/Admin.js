@@ -25,7 +25,7 @@ const Admin = () => {
       </div>
     )
   }
-  console.log(hardCodedData.map(client => client))
+
   return !user.loggedIn ?  // ici permet de s'assurer qu'accès à utilisateeur loggé, empêche accès depuis path de la barre de recherche
     (
       <Redirect to='/login' />
@@ -41,7 +41,7 @@ const Admin = () => {
 
         {selected &&
           <div>
-            <div> {selected.city}</div>
+            <div>{selected.city}</div>
             <div>{selected.street}</div>
             <div>{selected.postcode}</div>
           </div>
