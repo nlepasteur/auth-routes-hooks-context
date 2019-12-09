@@ -1,8 +1,7 @@
 
 ## Test technique application de visualisation d’informations client
 
-![Image of Login]
-(https://image.noelshack.com/fichiers/2019/50/2/1575933097-auth.png)
+
 
 ### `Détail`
 
