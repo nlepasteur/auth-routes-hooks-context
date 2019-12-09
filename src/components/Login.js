@@ -12,9 +12,9 @@ const Login = () => {
     )
     :
     (
-      <div style={{ backgroundColor: "green" }} className='achanger'>
+      <div>
         <h1>Login</h1>
-        <form onSubmit={onSubmit}>
+        <form onSubmit={onSubmit}> {/*ajouter attributs pour bonne pratique*/}
           <label> Username
           <input type="text" placeholder="username" name="name" value={user.name} onChange={onChange} />
           </label>
