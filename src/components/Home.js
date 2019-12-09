@@ -5,19 +5,19 @@ import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
 const SignIn = styled.div`
-text-align : center;
 height : 85vh;
+text-align : center;
 
 > button {
-  background-color:#9999ff;
-  color : #8080ff;
   margin : 2em 0;
   padding : 1em;
+  background-color:#9999ff;
+  border-radius : 10px;
   border : none;
   font-size : 3rem;
+  color : #8080ff;
   text-decoration : none;
   cursor : pointer;
-  border-radius : 10px;
 }
 `;
 

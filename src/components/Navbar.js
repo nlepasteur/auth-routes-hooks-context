@@ -7,11 +7,11 @@ import styled from 'styled-components'
 // below styled-component
 const NavWrapper = styled.div`
 display : flex;
-color : #8080ff;
 height : 15vh;
-font-size : 2rem;
-background-color : #9999ff;
 justify-content : center;
+background-color : #9999ff;
+font-size : 2rem;
+color : #8080ff;
 
 > h1 {
  align-self : center;

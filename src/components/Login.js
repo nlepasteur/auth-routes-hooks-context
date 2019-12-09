@@ -6,9 +6,9 @@ import { LoginContext } from '../contexts/LoginContext'
 import styled from 'styled-components'
 
 const FormWrapper = styled.div`
+height : 85vh;
 padding : 0 3em;
 background-color : #ffffff;
-height : 85vh;
 >h1{
   margin : 1em 0;
   color : #9999ff;
@@ -17,14 +17,14 @@ height : 85vh;
 const Form = styled.form`
 display : flex;
 flex-wrap : wrap;
-margin : 0 auto 0;
 justify-content : center;
+margin : 0 auto 0;
 
 >input {
   width : 100%;
-  font-size : 1.5rem;
   padding : 1em;
   margin : 0.5em 0;
+  font-size : 1.5rem;
 }
 
 >input:first-child{
@@ -32,22 +32,22 @@ justify-content : center;
 }
 
 >input:last-child{
-  border : 1px solid #ccd9ff;
-  font-size : 1.5rem;
   width : 50%;
   margin-bottom : 0;
   background-color : #9999ff;
+  border : 1px solid #ccd9ff;
+  border-radius : 10px;
+  font-size : 1.5rem;
   color : #8080ff;
   cursor : pointer;
-  border-radius : 10px;
 }
 `;
 
 const Login = () => {
 
-  const { user, handleChange, handleSubmit } = useContext(LoginContext) // context provided par 'LoginContext.js', propriétés et fonctions utilisées par ce composant qui y sont rattachées, y sont expliquées
+  const { user, handleChange, handleSubmit } = useContext(LoginContext)
 
-  return user.loggedIn ? // ici permet de rediriger user après qu'il ait soumis le formulaire et par extension modifié le state user de 'LoginContext.js'
+  return user.loggedIn ?
     (
       <Redirect to='/admin' />
     )
