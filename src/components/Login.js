@@ -58,7 +58,7 @@ const Login = () => {
         <Form onSubmit={handleSubmit}>
           <input type="text" name="name" placeholder='username' value={user.name} onChange={handleChange} />
 
-          <input type="text" name="password" placeholder='password' value={user.password} onChange={handleChange} />
+          <input type="password" name="password" placeholder='password' value={user.password} onChange={handleChange} />
 
           <input type="submit" value="Sign in" />
         </Form>
