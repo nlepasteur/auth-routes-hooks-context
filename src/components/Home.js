@@ -17,6 +17,7 @@ height : 85vh;
   font-size : 3rem;
   text-decoration : none;
   cursor : pointer;
+  border-radius : 10px;
 }
 `;
 

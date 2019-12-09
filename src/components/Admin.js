@@ -45,6 +45,7 @@ text-align : center;
   padding : .2em 0;
   background-color : #F7F7F7;
   color : #adadad;
+  cursor : pointer;
 }
 
 >div:first-child{

@@ -38,6 +38,8 @@ justify-content : center;
   margin-bottom : 0;
   background-color : #9999ff;
   color : #8080ff;
+  cursor : pointer;
+  border-radius : 10px;
 }
 `;
 
