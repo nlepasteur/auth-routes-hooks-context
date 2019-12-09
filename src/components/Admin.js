@@ -5,6 +5,28 @@ import { Link, Redirect } from 'react-router-dom'
 import { AdminContext } from '../contexts/AdminContext'
 import { LoginContext } from '../contexts/LoginContext'
 import { InCaseNoServer } from '../contexts/InCaseNoServer'
+// below import styled-components
+import styled from 'styled-components'
+
+const AdminWrapper = styled.div`
+background-color : pink;
+height : 80vh;
+> h1 {
+  color : blue;
+}
+
+`;
+
+const ListingClients = styled.div`
+display : grid;
+width : 80%;
+margin : 0 auto;
+
+> div {
+  font-size : 2rem;
+  border : 1px solid black;
+}
+`;
 
 const Admin = () => {
   const { clients, selected, getId } = useContext(AdminContext)
@@ -15,13 +37,12 @@ const Admin = () => {
   const renderDetails = () => {
     const dataClients = clients ? clients : hardCodedData
     return (
-      <div>
+      <ListingClients>
         {dataClients && dataClients.map(client =>
           <div key={client.id} onClick={getId} id={client.id}>
-            {client.firstname}
-            {client.lastname}
+            {client.firstname} {client.lastname}
           </div>)}
-      </div>
+      </ListingClients>
     )
   }
 
@@ -31,7 +52,7 @@ const Admin = () => {
     )
     :
     (
-      <div>
+      <AdminWrapper>
         <h1>Welcome {user.name} :)</h1>
 
         {renderDetails()}
@@ -45,7 +66,7 @@ const Admin = () => {
         }
 
         <Link to='/' onClick={logOut}>Log out</Link>
-      </div>
+      </AdminWrapper>
     )
 }
 

@@ -6,9 +6,41 @@ import { LoginContext } from '../contexts/LoginContext'
 import styled from 'styled-components'
 
 const FormWrapper = styled.div`
+padding : 0 3em;
+border : 1px solid black;
 background-color : yellow;
-height : 90vh;
+height : 80vh;
+>h1{
+  margin : 1em 0;
+}
 `
+const Form = styled.form`
+border : 1px solid red;
+display : flex;
+flex-wrap : wrap;
+margin : 0 auto 0;
+justify-content : center;
+
+>input {
+  width : 100%;
+  font-size : 1.5rem;
+  padding : 1em;
+  margin : 0.5em 0;
+}
+
+>input:first-child{
+  margin-top : 0;
+}
+
+>input:last-child{
+  width : 50%;
+  margin-bottom : 0;
+}
+`;
+
+// const Inp = styled.input{
+//   width : 
+// }
 
 const Login = () => {
 
@@ -22,15 +54,13 @@ const Login = () => {
     (
       <FormWrapper>
         <h1>Login</h1>
-        <form onSubmit={handleSubmit}>
-          <label> Username
-          <input type="text" name="name" value={user.name} onChange={handleChange} />
-          </label>
-          <label> Password
-            <input type="text" name="password" value={user.password} onChange={handleChange} />
-          </label>
+        <Form onSubmit={handleSubmit}>
+          <input type="text" name="name" placeholder='username' value={user.name} onChange={handleChange} />
+
+          <input type="text" name="password" placeholder='password' value={user.password} onChange={handleChange} />
+
           <input type="submit" />
-        </form>
+        </Form>
       </FormWrapper>
     )
 }

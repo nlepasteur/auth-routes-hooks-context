@@ -6,7 +6,7 @@ import styled from 'styled-components'
 
 // below styled-component
 const NavWrapper = styled.div`
-height : 10vh;
+height : 15vh;
 font-size : 2rem;
 background-color : blue;;
 text-align : center;
