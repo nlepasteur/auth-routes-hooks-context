@@ -1,6 +1,8 @@
 
 ## Test technique application de visualisation d’informations client
 
+Lien Netlify : https://upbeat-mcnulty-215edb.netlify.com
+
 ![login](https://image.noelshack.com/fichiers/2019/50/2/1575933097-auth.png)
 
 ![admin](https://image.noelshack.com/fichiers/2019/50/2/1575933665-admin.png)
