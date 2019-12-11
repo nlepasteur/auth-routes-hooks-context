@@ -9,7 +9,7 @@ Lien Netlify : https://upbeat-mcnulty-215edb.netlify.com
 
 ### `Détail`
 
-J'ai joint dans ce repository des fichiers SQL et NodeJS, pour vous laisser le choix entre utiliser l'application avec des données clients entrées en dur, ou bien des données clients récupérées depuis une base de données. Ce sont de petits fichiers (J'ai commencé depuis peu à étudier SQL et NodeJS et ne savais pas comment lier le front et le back-end au moment où j'ai démarré le test), à valeur de simulation. Je n'aimais pas trop l'idée d'utiliser uniquement de la donnée entrée en dur :)
+J'ai joint dans ce repository des fichiers SQL et NodeJS, pour vous laisser le choix entre utiliser l'application avec des données clients entrées en dur, ou bien des données clients récupérées depuis une base de données. Ce sont de petits fichiers (J'ai commencé depuis peu à étudier SQL et NodeJS et ne savais pas comment lier le front et le back-end au moment où j'ai démarré le test), à valeur de simulation.
 
 ### `Points à améliorer`
 
